@@ -1,0 +1,32 @@
+{
+        "namespace": "streams",
+        "name": "transactions",
+        "type": "record",
+        "fields": [
+                {"name": "transactiontime", "type": {
+                    "type": "long",
+                    "format_as_time" : "unix_long",
+                    "arg.properties": {
+                       "iteration": { "start": 1, "step": 10}
+                    }
+                }},
+                {"name": "transactionid", "type": {
+                    "type": "string",
+                    "arg.properties": {
+                        "regex": "transaction_[1-9][0-9][0-9]"
+                    }
+                }},
+                {"name": "clientid", "type": {
+                    "type": "string",
+                    "arg.properties": {
+                        "regex": "client_[1-9][0-9]?"
+                    }
+                }},
+                {"name": "transactionamount", "type": {
+                    "type": "string",
+                    "arg.properties": {
+                        "regex": "ad_[1-9][0-9]?"
+                    }
+                }}
+        ]
+}

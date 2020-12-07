@@ -1,0 +1,20 @@
+{
+        "namespace": "streams",
+        "name": "clients",
+        "type": "record",
+        "fields": [
+                {"name": "clienttime", "type": {
+                            "type": "long",
+                            "format_as_time" : "unix_long",
+                            "arg.properties": {
+                               "iteration": { "start": 1, "step": 10}
+                            }
+                        }},
+                {"name": "clientid", "type": {
+                    "type": "string",
+                    "arg.properties": {
+                        "regex": "client_[1-9][0-9]?"
+                    }
+                }}
+        ]
+}
