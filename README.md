@@ -44,7 +44,7 @@ SHOW STREAMS;
 SELECT transactions_transactionid, transactions_transactionamount, transactions_clientid, clients_clientid FROM transactions_clients tc EMIT CHANGES;
 ```
 
-You can see that the fields are prefixed by the name of the stream of the entity (with the join clause) and a `_` and not a `transactions_clients.transactionamount` (which was my first idea). 
+You can see that the fields are prefixed by the name of the stream of the entity and a `_` and not a `transactions_clients.transactionamount` (which was my first idea). 
 
 - Currently, the query doesn't return anything because the two topics (and streams) are empty. We can add data using the scripts `sh transactions.sh json` and `sh clients.sh json` located in the `scripts` folder. It will push 100 items of each entity in the two tipics.  
 - We can see in the terminal the lines where the `clientid` is the ame ror the two entities. I print the two to see the equality. 
